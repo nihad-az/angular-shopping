@@ -1,0 +1,17 @@
+<div class="products-page">
+  <h1>Products</h1>
+
+  <div *ngIf="loading" class="loading">Loading products...</div>
+
+  <div *ngIf="!loading" class="products">
+    <nz-card *ngFor="let product of products" [nzTitle]="product.title" [nzCover]="coverTemplate">
+      <ng-template #coverTemplate>
+        <img [src]="product.thumbnail" [alt]="product.title" />
+      </ng-template>
+
+      <p>{{ product.description }}</p>
+
+      <strong>${{ product.price }}</strong>
+    </nz-card>
+  </div>
+</div>
